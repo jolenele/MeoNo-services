@@ -26,4 +26,13 @@ public class UsersService {
         }
         usersRepository.save(user);
     }
+
+    public void deleteUser(String username) {
+        Optional<Users> userOptional = usersRepository.findUserByUsername(username);
+        if (!userOptional.isPresent()){
+            throw new IllegalStateException("Account with this username does not exist");
+        }
+        usersRepository.delete(userOptional.get());
+
+    }
 }

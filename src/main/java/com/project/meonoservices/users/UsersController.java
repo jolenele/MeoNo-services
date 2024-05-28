@@ -26,5 +26,10 @@ public class UsersController {
     public void registerNewUser(@RequestBody Users user) {
         userService.addNewUser(user);
     }
+
+    @DeleteMapping(path="{username}")
+    public void deleteUser(@PathVariable("username") String username) {
+        userService.deleteUser(username);
+    }
 }
 
