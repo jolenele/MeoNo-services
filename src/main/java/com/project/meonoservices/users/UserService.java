@@ -6,8 +6,8 @@ import java.util.List;
 
 @Service
 public class UserService {
-    public List<User> getUsers() {
-        return List.of(new User(1, "emmagreen", "Emma", "Green", "emmagreen@gmail.com","helloword"));
+    public List<Users> getUsers() {
+        return List.of(new Users(1, "emmagreen", "Emma", "Green", "emmagreen@gmail.com","helloword"));
 
     }
 }

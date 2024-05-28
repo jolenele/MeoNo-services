@@ -1,6 +1,20 @@
 package com.project.meonoservices.users;
 
-public class User {
+import jakarta.persistence.*;
+
+@Entity
+@Table
+public class Users {
+    @Id
+    @SequenceGenerator(
+            name = "user_sequence",
+            sequenceName = "user_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "user_sequence"
+    )
     private Integer id;
     private String username;
     private String firstname;
@@ -8,10 +22,10 @@ public class User {
     private String email;
     private String password;
 
-    public User() {
+    public Users() {
     }
 
-    public User(Integer id, String username, String firstname, String lastname, String email, String password) {
+    public Users(Integer id, String username, String firstname, String lastname, String email, String password) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
@@ -20,7 +34,7 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String firstname, String lastname, String email, String password) {
+    public Users(String username, String firstname, String lastname, String email, String password) {
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
