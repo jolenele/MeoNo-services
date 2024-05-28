@@ -10,4 +10,7 @@ public class MeonoservicesApplication {
 		SpringApplication.run(MeonoservicesApplication.class, args);
 	}
 
+
+
 }
+
