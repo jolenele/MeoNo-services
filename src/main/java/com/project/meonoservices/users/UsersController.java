@@ -31,5 +31,16 @@ public class UsersController {
     public void deleteUser(@PathVariable("username") String username) {
         userService.deleteUser(username);
     }
+
+    @PutMapping(path = "{username}")
+    public void updateUser(
+            @PathVariable("username") String username,
+            @RequestParam(required = false) String firstname,
+            @RequestParam(required = false) String lastname,
+            @RequestParam(required = false) String password,
+            @RequestParam(required = false) String email
+            ) {
+        userService.updateUser(username, firstname, lastname, password, email);
+    }
 }
 

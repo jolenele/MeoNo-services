@@ -12,4 +12,7 @@ public interface UsersRepository
 
     @Query("SELECT u FROM Users u WHERE u.username = ?1")
     Optional<Users> findUserByUsername(String username);
+
+    @Query("SELECT u FROM Users u WHERE u.email = ?1")
+    Optional<Users> findUserByEmail(String email);
 }
