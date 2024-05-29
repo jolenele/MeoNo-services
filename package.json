@@ -15,7 +15,7 @@
     "prettier-plugin-java": "^2.6.0"
   },
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write",
+    "*.{js,ts,tsx,css,md}": "prettier --write",
     "*.{,java}": "prettier --write"
   },
   "dependencies": {
