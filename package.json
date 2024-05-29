@@ -1,7 +1,7 @@
 {
   "name": "meono-services",
   "version": "1.0.0",
-  "description": "cd database docker compose up",
+  "description": "MeoNo services",
   "main": "index.js",
   "scripts": {
     "prepare": "husky install"
