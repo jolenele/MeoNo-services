@@ -22,6 +22,8 @@ export const useCallAPI = (
 
     async function callAPI() {
       try {
+        setIsPending(true);
+
         const { data } = await api({
           method,
           url: `/api/${url}`,
