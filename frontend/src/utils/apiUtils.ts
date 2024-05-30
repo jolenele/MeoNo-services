@@ -1,38 +1,48 @@
 import axios from "axios";
-
-type TResponse = {
-  isPending: boolean;
-  error: null | unknown;
-  data: null | any;
-};
+import { useEffect, useState } from "react";
 
 const api = axios.create();
 
-export async function callAPI(
+export const useCallAPI = (
   method: "GET" | "PUT" | "POST",
   url: string,
   payload: Record<string, any> = {},
   timeout = 15000,
-) {
-  const response: TResponse = {
-    isPending: false,
-    error: null,
-    data: null,
+) => {
+  const [isPending, setIsPending] = useState<boolean>(false);
+  const [error, setError] = useState<null | any>(null);
+  const [data, setData] = useState<null | any>(null);
+
+  useEffect(() => {
+    if (!method || !url) {
+      setError("Invalid request.");
+
+      return;
+    }
+
+    async function callAPI() {
+      try {
+        const { data } = await api({
+          method,
+          url: `/api/${url}`,
+          data: payload,
+          signal: AbortSignal.timeout(timeout),
+        });
+
+        setData(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsPending(false);
+      }
+    }
+
+    callAPI();
+  }, [method, url, payload, timeout]);
+
+  return {
+    isPending,
+    error,
+    data,
   };
-
-  try {
-    const { data } = await api({
-      method,
-      url: `/api/${url}`,
-      data: payload,
-      signal: AbortSignal.timeout(timeout),
-    });
-    response.data = data;
-  } catch (error) {
-    response.error = error;
-  } finally {
-    response.isPending = false;
-  }
-
-  return response;
-}
+};

@@ -1,13 +1,19 @@
-import { callAPI } from "@/utils/apiUtils";
+import { useCallAPI } from "@/utils/apiUtils";
 
-export class UserService {
-  static apiVersion = "v1";
-  static apiRoot = "user";
+const UserService = () => {
+  const apiVersion = "v1";
+  const apiRoot = "user";
 
-  static async login(username: string, password: string) {
-    return await callAPI("POST", `${this.apiVersion}/${this.apiRoot}/login`, {
+  function Login(username: string, password: string) {
+    return useCallAPI("POST", `${apiVersion}/${apiRoot}/login`, {
       username,
       password,
     });
   }
-}
+
+  return {
+    Login,
+  };
+};
+
+export default UserService;
