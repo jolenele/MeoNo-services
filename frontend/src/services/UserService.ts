@@ -16,14 +16,14 @@ const UserService = () => {
     return useCallAPI("POST", `${apiVersion}/${apiRoot}/logout`, { user_id });
   }
 
-  function SignUp(data: IUser) {
+  function Signup(data: IUser) {
     return useCallAPI("POST", `${apiVersion}/${apiRoot}/signup`, { ...data });
   }
 
   return {
     Login,
     Logout,
-    SignUp,
+    Signup,
   };
 };
 
