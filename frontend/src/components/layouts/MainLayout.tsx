@@ -1,10 +1,15 @@
+import Link from "next/link";
 import ResponsiveScreenDiv from "../common/ResponsiveScreenDiv";
+import Image from "next/image";
+import AuthHeaderComp from "../auth/AuthHeaderComp";
 
 const Header = () => {
   return (
-    <ResponsiveScreenDiv className="px-8 flex justify-between">
-      <div>MeoNo</div>
-      <div>Login</div>
+    <ResponsiveScreenDiv className="px-8 flex justify-between items-center">
+      <Link href="/" className="flex content-center">
+        <Image width="100" height="100" src="/logo.svg" alt="meono-logo" />
+      </Link>
+      <AuthHeaderComp />
     </ResponsiveScreenDiv>
   );
 };
