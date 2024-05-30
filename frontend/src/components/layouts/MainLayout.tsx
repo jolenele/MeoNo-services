@@ -2,14 +2,18 @@ import Link from "next/link";
 import ResponsiveScreenDiv from "../common/ResponsiveScreenDiv";
 import Image from "next/image";
 import AuthHeaderComp from "../auth/AuthHeaderComp";
+import { useAppStore } from "@/context/store";
 
 const Header = () => {
+  const user = useAppStore((state) => state.user);
+  const removeUser = useAppStore((state) => state.removeUser);
+
   return (
     <ResponsiveScreenDiv className="px-8 flex justify-between items-center">
       <Link href="/" className="flex content-center">
         <Image width="100" height="100" src="/logo.svg" alt="meono-logo" />
       </Link>
-      <AuthHeaderComp />
+      <AuthHeaderComp user={user} logout={removeUser} />
     </ResponsiveScreenDiv>
   );
 };

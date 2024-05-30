@@ -1,5 +1,5 @@
 import {
-  Avatar as Ava,
+  Avatar as ShaAvatar,
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
@@ -13,10 +13,10 @@ const Avatar = (props: Props) => {
   const { src = "user.svg", alt = "UP" } = props;
 
   return (
-    <Ava className="border">
+    <ShaAvatar className="border">
       <AvatarImage src={src} />
       <AvatarFallback>{alt}</AvatarFallback>
-    </Ava>
+    </ShaAvatar>
   );
 };
 

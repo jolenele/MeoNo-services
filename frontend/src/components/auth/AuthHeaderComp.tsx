@@ -1,22 +1,24 @@
 import { IUser } from "@/models/IUser";
 import Avatar from "../common/Avatar";
+import Button from "../common/Button";
 
 type Props = {
   user: null | IUser;
+  logout: () => void;
 };
 
 const AuthHeaderComp = (props: Props) => {
-  const { user } = props;
+  const { user, logout } = props;
 
   return (
     <>
       {!user ? (
         <>
-          <Avatar />
+          <Button title="Login" />
         </>
       ) : (
         <>
-          <Avatar />
+          <Avatar user={user} />
         </>
       )}
     </>
