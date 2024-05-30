@@ -23,7 +23,7 @@ export async function callAPI(
   try {
     const { data } = await api({
       method,
-      url,
+      url: `/api/${url}`,
       data: payload,
       signal: AbortSignal.timeout(timeout),
     });
