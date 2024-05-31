@@ -14,8 +14,8 @@ const Avatar = (props: Props) => {
 
   return (
     <ShaAvatar className="border">
-      <AvatarImage src={src} />
-      <AvatarFallback>{alt}</AvatarFallback>
+      <AvatarImage src={src} alt={alt} />
+      <AvatarFallback>UI</AvatarFallback>
     </ShaAvatar>
   );
 };

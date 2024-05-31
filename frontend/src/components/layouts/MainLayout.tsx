@@ -36,17 +36,17 @@ const Footer = () => {
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="w-screen min-h-screen flex flex-col">
-      <header className="h-12 border flex justify-center">
+      <header className="h-12 border-b flex justify-center">
         <Header />
       </header>
 
-      <main className="flex-grow flex justify-center">
-        <ResponsiveScreenDiv className="bg-slate-100">
+      <main className="flex-grow flex justify-center bg-neutral-100">
+        <ResponsiveScreenDiv className="bg-primary">
           {children}
         </ResponsiveScreenDiv>
       </main>
 
-      <footer className="h-12 border flex justify-center">
+      <footer className="h-12 border-t flex justify-center">
         <Footer />
       </footer>
     </div>

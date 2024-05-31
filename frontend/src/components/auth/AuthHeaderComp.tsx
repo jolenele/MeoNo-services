@@ -14,11 +14,11 @@ const AuthHeaderComp = (props: Props) => {
     <>
       {!user ? (
         <>
-          <Button title="Login" />
+          <Button>Login</Button>
         </>
       ) : (
         <>
-          <Avatar user={user} />
+          <Avatar src={user.imageURL} alt={user.username} />
         </>
       )}
     </>
