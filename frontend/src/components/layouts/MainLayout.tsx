@@ -11,7 +11,13 @@ const Header = () => {
   return (
     <ResponsiveScreenDiv className="px-8 flex justify-between items-center">
       <Link href="/" className="flex content-center">
-        <Image width="100" height="100" src="/logo.svg" alt="meono-logo" />
+        <Image
+          width={0}
+          height={0}
+          src="/logo.svg"
+          alt="meono-logo"
+          className="h-12 w-full"
+        />
       </Link>
       <AuthHeaderComp user={user} logout={removeUser} />
     </ResponsiveScreenDiv>
