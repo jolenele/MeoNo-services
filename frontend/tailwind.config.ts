@@ -33,5 +33,15 @@ const config: Config = {
     },
   },
   plugins: [daisyui],
+
+  daisyui: {
+    themes: [
+      {
+        default: {
+          primary: "#FFDEDE",
+        },
+      },
+    ],
+  },
 };
 export default config;
