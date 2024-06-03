@@ -1,12 +1,15 @@
 import { ButtonHTMLAttributes } from "react";
 
-const Button = (props: ButtonHTMLAttributes<HTMLButtonElement>) => {
-  return (
-    <button
-      className="border-2 rounded-full font-bold text-lg bg-danger hover:scale-105"
-      {...props}
-    />
-  );
+type Props = {
+  color?: string;
+};
+
+const Button = (props: Props & ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const { color = "primary" } = props;
+
+  const className = "btn btn-sm".concat(` btn-${color}`);
+
+  return <button className={className} {...props} />;
 };
 
 export default Button;
