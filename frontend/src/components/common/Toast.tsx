@@ -1,10 +1,10 @@
 import React from "react";
 import { useCallback, useEffect, useState } from "react";
-import Alert from "./Alert";
+import Alert, { AlertType } from "./Alert";
 
 type ToastProps = {
   message: string | React.ReactElement;
-  type?: "info" | "success" | "warning" | "error";
+  type?: AlertType;
   onClose: () => void;
 };
 

@@ -1,7 +1,9 @@
 import React from "react";
 
+export type AlertType = "info" | "success" | "warning" | "error";
+
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  type: "info" | "success" | "warning" | "error";
+  type: AlertType;
 }
 
 const Alert = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
