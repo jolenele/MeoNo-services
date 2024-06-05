@@ -1,8 +1,11 @@
 import Head from "next/head";
 import { NextPageWithLayout } from "./_app";
 import MainLayout from "@/components/layouts/MainLayout";
+import useToast from "@/components/common/Toast";
+import Button from "@/components/common/Button";
 
 const Home: NextPageWithLayout = () => {
+  const { ToastContainer, addToast } = useToast();
   return (
     <>
       <Head>
@@ -11,7 +14,16 @@ const Home: NextPageWithLayout = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <p>lol</p>
+      <div>
+        <Button
+          onClick={() => {
+            addToast("Hello", "success");
+          }}
+        >
+          Hello
+        </Button>
+      </div>
+      <ToastContainer />
     </>
   );
 };
