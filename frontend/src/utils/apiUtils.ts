@@ -10,7 +10,7 @@ export const useCallAPI = (
   timeout = 15000,
 ) => {
   const [isPending, setIsPending] = useState<boolean>(false);
-  const [error, setError] = useState<null | any>(null);
+  const [error, setError] = useState<null | string>(null);
   const [data, setData] = useState<null | any>(null);
 
   useEffect(() => {
@@ -33,7 +33,11 @@ export const useCallAPI = (
 
         setData(data);
       } catch (err) {
-        setError(err);
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError(JSON.stringify(err));
+        }
       } finally {
         setIsPending(false);
       }

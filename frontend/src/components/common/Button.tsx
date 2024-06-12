@@ -44,7 +44,7 @@ const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
       square: "btn-square",
     };
 
-    let _className = `btn ${colorVariants[color]} ${sizeVariants[size]}`;
+    let _className = `btn w-fit ${colorVariants[color]} ${sizeVariants[size]}`;
 
     if (shape) {
       _className += ` ${shapeVariants[shape]}`;
