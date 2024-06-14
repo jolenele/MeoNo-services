@@ -1,7 +1,7 @@
 import { IUser } from "@/models/IUser";
 import { useCallAPI } from "@/utils/apiUtils";
 
-const UserService = () => {
+const _UserService = () => {
   const apiVersion = "v1";
   const apiRoot = "user";
 
@@ -26,5 +26,7 @@ const UserService = () => {
     Signup,
   };
 };
+
+const UserService = _UserService();
 
 export default UserService;
